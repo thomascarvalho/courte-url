@@ -8,4 +8,11 @@
  []
 
  :builds
- {}}
+ {:app
+  {:target :esm
+   :output-dir "build"
+   :js-options {;; don't bundle any npm libs
+                :js-provider :import}
+   :compiler-options {:infer-externs :auto}
+   :runtime :node
+   :modules {:main {:init-fn courte.main/init}}}}}
